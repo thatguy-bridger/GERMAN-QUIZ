@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wie Deutsch Bist Du? (The Cool Version)</title>
+    <style>
+        /* CSS - Making it look modern and bold */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: white;
+            width: 100%;
+            max-width: 700px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border-top: 15px solid #DD0000; /* Red */
+            border-bottom: 15px solid #FFCE00; /* Gold */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        p.intro {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .question-block {
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #333;
+        }
+
+        .question-text {
+            font-weight: 800;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0;
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+
+        label:hover {
+            background-color: #FFCE00; /* German Gold highlight */
+            border-color: #FFCE00;
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background-color: #DD0000;
+            color: white;
+            border: none;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.1s;
+            box-shadow: 0 4px 0 #990000;
+        }
+
+        button:active {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+
+        /* Result Section */
+        #result {
+            display: none; 
+            text-align: center;
+            margin-top: 30px;
+            padding: 30px;
+            background-color: #333;
+            color: #FFCE00;
+            border-radius: 15px;
+        }
+
+        #percentage {
+            font-size: 4em;
+            font-weight: 900;
+        }
+
+        #comment {
+            font-size: 1.3em;
+            margin-top: 10px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🇩🇪 The German "Cool" Quiz</h1>
+    <p class="intro">Fast cars, street food, and weird traditions. Let's go!</p>
+
+    <form id="quizForm">
+        <div class="question-block">
+            <span class="question-text">1. The "Autobahn" is world-famous because:</span>
+            <label><input type="radio" name="q1" value="wrong"> It is the longest road in the world.</label>
+            <label><input type="radio" name="q1" value="correct"> Large sections have NO speed limit.</label>
+            <label><input type="radio" name="q1" value="wrong"> It glows in the dark.</label>
+        </div>
+
+        <div class="question-block">
+            <span class="question-text">2. Which German castle was the inspiration for the Disney Castle?</span>
+            <label><input type="radio" name="q2" value="wrong"> Frankenstein Castle</label>
+            <label><input type="radio" name="q2" value="correct"> Neuschwanstein Castle</label>
+            <label><input type="radio" name="q2" value="wrong"> Heidelberg Castle</label>
+        </div>
+
+        <div class="question-block">
+            <span class="question-text">3. Forget hot dogs. What is the most popular street food in Berlin?</span>
+            <label><input type="radio" name="q3" value="correct"> Döner Kebab</label>
+            <label><input type="radio" name="q3" value="wrong"> Tacos</label>
+            <label><input type="radio" name="q3" value="wrong"> Fish and Chips</label>
+        </div>
+
+        <div class="question-block">
+            <span class="question-text">4. What is "Spezi"? (Teenagers drink it everywhere)</span>
+            <label><input type="radio" name="q4" value="wrong"> A type of spicy mustard.</label>
+            <label><input type="radio" name="q4" value="correct"> A mix of Cola and Orange Soda.</label>
+            <label><input type="radio" name="q4" value="wrong"> A coffee with ice cream.</label>
+        </div>
+
+        <div class="question-block">
+            <span class="question-text">5. Which famous candy company is German?</span>
+            <label><input type="radio" name="q5" value="wrong"> Hershey's</label>
+            <label><input type="radio" name="q5" value="wrong"> Skittles</label>
+            <label><input type="radio" name="q5" value="correct"> Haribo (Goldbären)</label>
+        </div>
+
+        <div class="question-block">
+            <span class="question-text">6. On the first day of 1st grade, German kids receive a "Schultüte". What is inside?</span>
+            <label><input type="radio" name="q6" value="correct"> Toys and candy.</label>
+            <label><input type="radio" name="q6" value="wrong"> Textbooks and homework.</label>
+            <label><input type="radio" name="q6" value="wrong"> A school uniform.</label>
+        </div>
+
+        <div class="question-block">
+            <span class="question-text">7. Germany has won the FIFA World Cup (Soccer) how many times?</span>
+            <label><input type="radio" name="q7" value="wrong"> Never.</label>
+            <label><input type="radio" name="q7" value="wrong"> 1 time.</label>
+            <label><input type="radio" name="q7" value="correct"> 4 times.</label>
+        </div>
+
+        <div class="question-block">
+            <span class="question-text">8. Berlin is considered the world capital of which music genre?</span>
+            <label><input type="radio" name="q8" value="correct"> Techno / Electronic</label>
+            <label><input type="radio" name="q8" value="wrong"> Country</label>
+            <label><input type="radio" name="q8" value="wrong"> Jazz</label>
+        </div>
+
+        <div class="question-block">
+            <span class="question-text">9. There is a German word "Schadenfreude". What does it mean?</span>
+            <label><input type="radio" name="q9" value="wrong"> The love of shadows.</label>
+            <label><input type="radio" name="q9" value="wrong"> Fear of Friday the 13th.</label>
+            <label><input type="radio" name="q9" value="correct"> Happiness derived from someone else's bad luck.</label>
+        </div>
+
+        <div class="question-block">
+            <span class="question-text">10. What car brands are German?</span>
+            <label><input type="radio" name="q10" value="wrong"> Ford, Chevy, Tesla.</label>
+            <label><input type="radio" name="q10" value="correct"> BMW, Mercedes, Audi, Porsche.</label>
+            <label><input type="radio" name="q10" value="wrong"> Toyota, Honda, Nissan.</label>
+        </div>
+
+        <button type="submit">Check My Score</button>
+    </form>
+
+    <div id="result">
+        <h2>Your Results:</h2>
+        <div id="percentage">0%</div>
+        <p id="comment">Placeholder text</p>
+    </div>
+</div>
+
+<script>
+    // Logic to calculate the score
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        let score = 0;
+        let totalQuestions = 10;
+        let correctAnswers = document.querySelectorAll('input[value="correct"]:checked');
+        score = correctAnswers.length;
+
+        let percent = (score / totalQuestions) * 100;
+
+        let comment = "";
+        if (percent === 100) {
+            comment = "LEGEND! You belong on the Autobahn driving a Porsche.";
+        } else if (percent >= 80) {
+            comment = "Awesome! You definitely know the cool side of Germany.";
+        } else if (percent >= 50) {
+            comment = "Solid effort. You know the cars, but maybe not the candy.";
+        } else {
+            comment = "Oof. You need to eat more Haribo and watch more soccer!";
+        }
+
+        const resultDiv = document.getElementById('result');
+        const percentageDiv = document.getElementById('percentage');
+        const commentDiv = document.getElementById('comment');
+
+        percentageDiv.innerText = percent + "% German";
+        commentDiv.innerText = comment;
+        
+        resultDiv.style.display = "block";
+        resultDiv.scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
